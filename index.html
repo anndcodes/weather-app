@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <!-- bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!-- axios -->
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-app px-4">
+        <form class="search-form">
+          <div class="row justify-content-around">
+            <div class="col-6">
+              <input
+                type="search"
+                id="search"
+                placeholder="Enter a city"
+                autofocus="on"
+                autocomplete="off"
+                class="form-control shadow-sm"
+              />
+            </div>
+            <div class="col-3 justify-content-around">
+              <input
+                type="submit"
+                value="Search"
+                class="form-control btn shadow-sm"
+                id="search-btn"
+              />
+            </div>
+            <div class="col-3">
+              <input
+                type="submit"
+                value="Current"
+                class="form-control btn shadow-sm"
+                id="current-btn"
+              />
+            </div>
+          </div>
+        </form>
+        <h1 id="city"></h1>
+        <p class="current-date"></p>
+        <div class="row">
+          <div class="col-2">
+            <div>
+              <p class="temp-icon">⛅</p>
+              <p id="description"></p>
+            </div>
+          </div>
+          <div class="col-3 d-flex">
+            <div>
+              <h2 id="temperature"></h2>
+            </div>
+            <div>
+              <p class="units">
+                <a id="celsius" href="#">°C</a> |
+                <a id="fahrenheit" href="#">°F</a>
+              </p>
+              <p>
+                <small class=""
+                  >💧 <span class="humidity"></span> 🌬️
+                  <span class="wind"></span
+                ></small>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
