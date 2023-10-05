@@ -54,6 +54,22 @@ function searchCity(event) {
   search(city);
 }
 
+// get user's current location temperature
+function getLocation(position) {
+  let apiKey = "b782a5a0cba928a80029c0fd1ea418bd";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(showTemp);
+}
+
+function getPosition(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(getLocation);
+}
+
+let currentLocal = document
+  .querySelector("#current-btn")
+  .addEventListener("click", getPosition);
+
 let form = document
   .querySelector(".search-form")
   .addEventListener("submit", searchCity);
