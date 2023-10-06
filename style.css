@@ -98,3 +98,16 @@ input[type="search"] {
 #fahrenheit:hover {
   color: #E86348
 }
+
+footer {
+  margin-top: 20px;
+  font-size: 1.5rem;
+}
+
+footer span  {
+  color: #E86348;
+}
+
+footer a {
+  color: #E86348;
+}
