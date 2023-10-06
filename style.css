@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200;8..144,300;8..144,400;8..144,500;8..144,600;8..144,700&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Roboto Flex', sans-serif;
+}
+
+.weather-app {
+  background: #faf3ef;
+  color: #615f5e;
+  max-width: 700px;
+}
+
+.search-form {
+  padding-top: 20px;
+}
+
+h1 {
+  font-size: 4rem;
+  padding-top: 20px;
+  font-weight: 400;
+}
+
+h2 {
+  font-size: 8.5rem;
+}
+
+img {
+  height: 70px;
+  width: 70px;
+}
+
+.current-date {
+  font-size: 1.6rem;
+}
+
+.weather-status,
+.weather {
+  padding-block: 20px;
+}
+
+#description {
+  font-size: 1.5rem;
+}
+
+.units,
+.weather-data {
+  position: relative;
+  top: 20px;
+}
+
+.units {
+  font-size: 1.9rem;
+}
+
+.weather-data {
+  font-size: 1.3rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+.btn {
+  font-size: 1.6rem;
+}
+
+input[type="search"] {
+  font-size: 1.6rem;
+}
+
+#search-btn {
+  background: #302154;
+  color: #fff;
+}
+
+#current-btn {
+  background: #E86348;
+  color: #fff;
+}
+
+#celsius,
+#fahrenheit {
+  font-weight: 700;
+}
+
+#celsius:hover,
+#fahrenheit:hover {
+  color: #E86348
+}

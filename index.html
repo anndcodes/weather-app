@@ -16,33 +16,33 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container">
-      <div class="weather-app px-4">
+    <div class="container mt-5">
+      <div class="weather-app px-5 rounded-4 shadow-lg">
         <form class="search-form">
-          <div class="row justify-content-around">
-            <div class="col-6">
+          <div class="row justify-content-end">
+            <div class="col-5">
               <input
                 type="search"
                 id="search"
                 placeholder="Enter a city"
                 autofocus="on"
                 autocomplete="off"
-                class="form-control shadow-sm"
+                class="form-control shadow"
               />
             </div>
-            <div class="col-3 justify-content-around">
+            <div class="col-2 justify-content-around">
               <input
                 type="submit"
                 value="Search"
-                class="form-control btn shadow-sm"
+                class="form-control btn shadow"
                 id="search-btn"
               />
             </div>
-            <div class="col-3">
+            <div class="col-2">
               <input
                 type="submit"
                 value="Current"
-                class="form-control btn shadow-sm"
+                class="form-control btn shadow"
                 id="current-btn"
               />
             </div>
@@ -51,13 +51,15 @@
         <h1 id="city"></h1>
         <p class="current-date"></p>
         <div class="row">
-          <div class="col-2">
-            <div>
-              <p class="temp-icon">⛅</p>
+          <div class="col-3 d-flex justify-content-start">
+            <div
+              class="weather-status d-flex flex-column align-items-center row-gap-3"
+            >
+              <img src="clear.svg" alt="" />
               <p id="description"></p>
             </div>
           </div>
-          <div class="col-3 d-flex">
+          <div class="weather col-5 d-flex column-gap-4">
             <div>
               <h2 id="temperature"></h2>
             </div>
@@ -67,7 +69,7 @@
                 <a id="fahrenheit" href="#">°F</a>
               </p>
               <p>
-                <small class=""
+                <small class="weather-data"
                   >💧 <span class="humidity"></span> 🌬️
                   <span class="wind"></span
                 ></small>
