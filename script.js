@@ -22,6 +22,7 @@ function formatDate(timestamp) {
 
 // get temperature by searching for a city
 function showTemp(response) {
+  celsiusTemp = response.data.main.temp;
   let city = (document.querySelector(
     "#city"
   ).innerHTML = `${response.data.name}`);
@@ -46,11 +47,31 @@ function search(city) {
   axios.get(apiUrl).then(showTemp);
 }
 
-function searchCity(event) {
+function handleSubmit(event) {
   event.preventDefault();
   let city = document.querySelector("#search").value;
   search(city);
 }
+
+// convert temperature from celsius to fahrenheit
+function showFahrenheitTemp(event) {
+  event.preventDefault();
+  let fahrenheitTemp = Math.round((celsiusTemp * 9) / 5 + 32);
+  let temperature = (document.querySelector("#temperature").innerHTML = fahrenheitTemp);
+  celsius.classList.remove("active");
+  fahrenheit.classList.add("active");
+  console.log(celsiusTemp);
+}
+
+function showCelsiusTemp(event) {
+  event.preventDefault();
+  console.log(celsiusTemp)
+  let temperature = (document.querySelector("#temperature").innerHTML = Math.round(celsiusTemp));
+  fahrenheit.classList.remove("active");
+  celsius.classList.add("active");
+  console.log(celsiusTemp);
+}
+
 
 // get user's current location temperature
 function getLocation(position) {
@@ -68,8 +89,18 @@ let currentLocal = document
   .querySelector("#current-btn")
   .addEventListener("click", getPosition);
 
+
 let form = document
   .querySelector(".search-form")
-  .addEventListener("submit", searchCity);
+  .addEventListener("submit", handleSubmit);
+
+let celsiusTemp = null;
+console.log(celsiusTemp);
+
+let fahrenheit = document.querySelector("#fahrenheit");
+fahrenheit.addEventListener("click", showFahrenheitTemp);
+
+let celsius = document.querySelector("#celsius");
+celsius.addEventListener("click", showCelsiusTemp);
 
 search("Sao Paulo");

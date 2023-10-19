@@ -64,21 +64,25 @@
                 <p id="description"></p>
               </div>
             </div>
-            <div class="weather col-5 d-flex column-gap-4">
-              <div>
+            <div class="weather col-5">
+              <div class="d-flex">
                 <h2 id="temperature"></h2>
+                <div>
+                  <span class="units">
+                    <a id="celsius" class="active">°C</a> |
+                    <a id="fahrenheit" href="">°F</a>
+                  </span>
+          
+                    <p>
+                    <small class="weather-data"
+                      >💧 <span class="humidity"></span> 🌬️
+                      <span class="wind"></span
+                    ></small>
+                  </p>
+                </div>
+               
               </div>
-              <div>
-                <p class="units">
-                  <a id="celsius" href="#">°C</a> |
-                  <a id="fahrenheit" href="#">°F</a>
-                </p>
-                <p>
-                  <small class="weather-data"
-                    >💧 <span class="humidity"></span> 🌬️
-                    <span class="wind"></span
-                  ></small>
-                </p>
+              <div class="d-flex justify-content-end align-items-start">
               </div>
             </div>
           </div>

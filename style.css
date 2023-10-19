@@ -42,7 +42,7 @@ h1 {
   font-weight: 400;
 }
 
-h2 {
+#temperature {
   font-size: 8.5rem;
 }
 
@@ -87,13 +87,17 @@ img {
   font-size: 1.9rem;
 }
 
+.units a {
+  cursor: pointer;
+  color: #E86348;
+}
+
 .weather-data {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 a {
   text-decoration: none;
-  color: inherit;
 }
 
 .btn {
@@ -119,11 +123,6 @@ input[type="search"] {
   font-weight: 700;
 }
 
-#celsius:hover,
-#fahrenheit:hover {
-  color: #E86348
-}
-
 footer {
   margin-top: 20px;
   font-size: 1.5rem;
@@ -135,4 +134,9 @@ footer span  {
 
 footer a {
   color: #E86348;
+}
+
+.units .active {
+  cursor: default;
+  color: #615f5e;
 }
