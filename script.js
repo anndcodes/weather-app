@@ -20,6 +20,10 @@ function formatDate(timestamp) {
   return `${day} ${hour}:${minutes}`;
 }
 
+// create img element to use with temperature icon
+let weatherIcon = document.createElement("img");
+weatherIcon.classList.add("weather-icon");
+
 // get temperature by searching for a city
 function showTemp(response) {
   celsiusTemp = response.data.main.temp;
@@ -39,6 +43,14 @@ function showTemp(response) {
     response.data.wind.speed
   )} km/h`);
   let date = document.querySelector("#date").innerHTML = formatDate(response.data.dt * 1000);
+
+  // append img element and set icon image
+  let weatherImg = document.querySelector(".weather-img").append(weatherIcon);
+
+  weatherIcon.setAttribute(
+    "src",
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    weatherIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
 function search(city) {
