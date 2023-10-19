@@ -16,69 +16,73 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="container mt-5">
-      <div class="weather-app px-5 rounded-4 shadow-lg">
-        <form class="search-form">
-          <div class="row justify-content-end">
-            <div class="col-5">
-              <input
-                type="search"
-                id="search"
-                placeholder="Enter a city"
-                autofocus="on"
-                autocomplete="off"
-                class="form-control shadow"
-              />
+    <div class="container">
+      <div class="weather-app-wrapper">
+        <div class="weather-app px-5 rounded-4 shadow-lg">
+          <form class="search-form">
+            <div class="row justify-content-end">
+              <div class="col-5">
+                <input
+                  type="search"
+                  id="search"
+                  placeholder="Enter a city"
+                  autofocus="on"
+                  autocomplete="off"
+                  class="form-control shadow"
+                />
+              </div>
+              <div class="col-2 justify-content-around">
+                <input
+                  type="submit"
+                  value="Search"
+                  class="form-control btn shadow"
+                  id="search-btn"
+                />
+              </div>
+              <div class="col-2">
+                <input
+                  type="submit"
+                  value="Current"
+                  class="form-control btn shadow"
+                  id="current-btn"
+                />
+              </div>
             </div>
-            <div class="col-2 justify-content-around">
-              <input
-                type="submit"
-                value="Search"
-                class="form-control btn shadow"
-                id="search-btn"
-              />
-            </div>
-            <div class="col-2">
-              <input
-                type="submit"
-                value="Current"
-                class="form-control btn shadow"
-                id="current-btn"
-              />
-            </div>
+          </form>
+          <div class="overview">
+            <h1 id="city"></h1>
+            <p class="current-date"></p>
           </div>
-        </form>
-        <h1 id="city"></h1>
-        <p class="current-date"></p>
-        <div class="row">
-          <div class="col-3 d-flex justify-content-start">
-            <div
-              class="weather-status d-flex flex-column align-items-center row-gap-3"
-            >
-              <img src="clear.svg" alt="" />
-              <p id="description"></p>
+          <div class="row">
+            <div class="col-3 d-flex justify-content-start weather-temperature">
+              <div
+                class="weather-status d-flex flex-column align-items-center row-gap-3"
+              >
+                <img src="clear.svg" alt="" />
+                <p id="description"></p>
+              </div>
             </div>
-          </div>
-          <div class="weather col-5 d-flex column-gap-4">
-            <div>
-              <h2 id="temperature"></h2>
-            </div>
-            <div>
-              <p class="units">
-                <a id="celsius" href="#">°C</a> |
-                <a id="fahrenheit" href="#">°F</a>
-              </p>
-              <p>
-                <small class="weather-data"
-                  >💧 <span class="humidity"></span> 🌬️
-                  <span class="wind"></span
-                ></small>
-              </p>
+            <div class="weather col-5 d-flex column-gap-4">
+              <div>
+                <h2 id="temperature"></h2>
+              </div>
+              <div>
+                <p class="units">
+                  <a id="celsius" href="#">°C</a> |
+                  <a id="fahrenheit" href="#">°F</a>
+                </p>
+                <p>
+                  <small class="weather-data"
+                    >💧 <span class="humidity"></span> 🌬️
+                    <span class="wind"></span
+                  ></small>
+                </p>
+              </div>
             </div>
           </div>
         </div>
+        <footer>open-source code by <span>Annd</span> on <a href="https://github.com/anndcodes/weather-app" target="_blank">Github</a></footer>
       </div>
-     <footer>open-source code by <span>Annd</span> on <a href="https://github.com/anndcodes/weather-app" target="_blank">Github</a></footer>
     </div>
     <script src="script.js"></script>
   </body>
