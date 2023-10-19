@@ -1,5 +1,6 @@
 // get real-time and date
-function formatDate(currentDate) {
+function formatDate(timestamp) {
+  let currentDate = new Date(timestamp);
   let hour = currentDate.getHours();
   hour < 10 ? (hour = `0${hour}`) : false;
   let minutes = currentDate.getMinutes();
@@ -16,12 +17,8 @@ function formatDate(currentDate) {
   ];
 
   let day = days[currentDate.getDay()];
-  let fullDate = `${day}, ${hour}:${minutes}`;
-  let fullCurrentDate = (document.querySelector(".current-date").innerHTML =
-    fullDate);
+  return `${day} ${hour}:${minutes}`;
 }
-
-formatDate(new Date());
 
 // get temperature by searching for a city
 function showTemp(response) {
@@ -40,6 +37,7 @@ function showTemp(response) {
   let wind = (document.querySelector(".wind").innerHTML = `${Math.round(
     response.data.wind.speed
   )} km/h`);
+  let date = document.querySelector("#date").innerHTML = formatDate(response.data.dt * 1000);
 }
 
 function search(city) {
