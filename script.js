@@ -20,9 +20,60 @@ function formatDate(timestamp) {
   return `${day} ${hour}:${minutes}`;
 }
 
+function formatForecastDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 7) {
+      forecastHTML =
+        forecastHTML +
+        `
+                  <div class="col">
+                    <div class="weather-forecast-date">
+                      ${formatForecastDay(forecastDay.dt)}
+                    </div>
+                    <img class="forecast-icon" src="https://openweathermap.org/img/wn/${
+                      forecastDay.weather[0].icon
+                    }@2x.png" alt="">
+                    <div class="weather-forecast-temp">
+                      <span class="weather-forecast-temp-max">${Math.round(
+                        forecastDay.temp.max
+                      )}°</span>
+                      <span class="weather-forecast-temp-min">${Math.round(
+                        forecastDay.temp.min
+                      )}°</span>
+                    </div>
+                  </div>
+                </div>`;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 // create img element to use with temperature icon
 let weatherIcon = document.createElement("img");
 weatherIcon.classList.add("weather-icon");
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "502dc8f7ae36e57af1974e18d16a86f8";
+
+  let apiURl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  console.log(apiURl);
+  axios.get(apiURl).then(displayForecast);
+}
 
 // get temperature by searching for a city
 function showTemp(response) {
@@ -42,15 +93,20 @@ function showTemp(response) {
   let wind = (document.querySelector(".wind").innerHTML = `${Math.round(
     response.data.wind.speed
   )} km/h`);
-  let date = document.querySelector("#date").innerHTML = formatDate(response.data.dt * 1000);
+  let date = (document.querySelector("#date").innerHTML = formatDate(
+    response.data.dt * 1000
+  ));
 
   // append img element and set icon image
   let weatherImg = document.querySelector(".weather-img").append(weatherIcon);
 
   weatherIcon.setAttribute(
     "src",
-    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-    weatherIcon.setAttribute("alt", response.data.weather[0].description);
+    `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  weatherIcon.setAttribute("alt", response.data.weather[0].description);
+
+  getForecast(response.data.coord);
 }
 
 function search(city) {
@@ -69,7 +125,8 @@ function handleSubmit(event) {
 function showFahrenheitTemp(event) {
   event.preventDefault();
   let fahrenheitTemp = Math.round((celsiusTemp * 9) / 5 + 32);
-  let temperature = (document.querySelector("#temperature").innerHTML = fahrenheitTemp);
+  let temperature = (document.querySelector("#temperature").innerHTML =
+    fahrenheitTemp);
   celsius.classList.remove("active");
   fahrenheit.classList.add("active");
   console.log(celsiusTemp);
@@ -77,13 +134,13 @@ function showFahrenheitTemp(event) {
 
 function showCelsiusTemp(event) {
   event.preventDefault();
-  console.log(celsiusTemp)
-  let temperature = (document.querySelector("#temperature").innerHTML = Math.round(celsiusTemp));
+  console.log(celsiusTemp);
+  let temperature = (document.querySelector("#temperature").innerHTML =
+    Math.round(celsiusTemp));
   fahrenheit.classList.remove("active");
   celsius.classList.add("active");
   console.log(celsiusTemp);
 }
-
 
 // get user's current location temperature
 function getLocation(position) {
@@ -100,7 +157,6 @@ function getPosition(event) {
 let currentLocal = document
   .querySelector("#current-btn")
   .addEventListener("click", getPosition);
-
 
 let form = document
   .querySelector(".search-form")

@@ -26,9 +26,9 @@ body {
 }
 
 .weather-app {
-  background: #faf3ef;
+  background: #fffdfc;
   color: #615f5e;
-  max-width: 700px;
+    max-width: 700px;
   padding: 20px;
 }
 
@@ -58,9 +58,9 @@ li {
   font-size: 16px;
 }
 
-img {
-  height: 70px;
-  width: 70px;
+.weather-icon {
+  height: 80px;
+  width: 80px;
 }
 
 .current-date {
@@ -139,4 +139,28 @@ footer a {
 .units .active {
   cursor: default;
   color: #615f5e;
+}
+
+.weather-forecast {
+  margin-top: 30px;
+  text-align: center;
+  color: #363535;
+}
+
+.forecast-icon {
+  width: 60px;
+  height: 60px;
+}
+
+.weather-forecast-date {
+  font-size: 1.6rem;
+  opacity: 0.7;
+}
+
+.weather-forecast-temp-min {
+  opacity: 0.5;
+}
+
+.weather-forecast-temp {
+  font-size: 1.3rem;
 }
