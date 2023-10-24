@@ -28,12 +28,12 @@ body {
 .weather-app {
   background: #fffdfc;
   color: #615f5e;
-    max-width: 700px;
+  max-width: 700px;
   padding: 20px;
 }
 
 .search-form {
-  padding-top: 20px;
+  padding-block: 20px 10px;
 }
 
 h1 {
@@ -73,7 +73,8 @@ li {
 }
 
 #description {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 300;
   text-transform: capitalize;
 }
 
@@ -143,6 +144,7 @@ footer a {
 
 .weather-forecast {
   margin-top: 30px;
+  margin-bottom: 20px;
   text-align: center;
   color: #363535;
 }
@@ -153,7 +155,7 @@ footer a {
 }
 
 .weather-forecast-date {
-  font-size: 1.6rem;
+  font-size: 1.7rem;
   opacity: 0.7;
 }
 
@@ -166,7 +168,7 @@ footer a {
 }
 
 .weather-forecast-temp {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 .weather-forecast-temp:hover {

@@ -2,7 +2,7 @@
 function formatDate(timestamp) {
   let currentDate = new Date(timestamp);
   let hour = currentDate.getHours();
-  hour < 10 ? (hour = `0${hour}`) : false;
+  // hour < 10 ? (hour = `0${hour}`) : false;
   let minutes = currentDate.getMinutes();
   minutes < 10 ? (minutes = `0${minutes}`) : false;
 
@@ -31,8 +31,8 @@ function formatForecastDay(timestamp) {
 function displayForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
+  let forecastHTML;
 
-  let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 7) {
       forecastHTML =
@@ -57,19 +57,17 @@ function displayForecast(response) {
                 </div>`;
     }
   });
+  forecastElement.innerHTML = forecastHTML.slice(9);
 
-  forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
-  
   let maxTemp = document.querySelectorAll(".weather-forecast-temp-max");
 
-  maxTemp.forEach(maxtemp => {
+  maxTemp.forEach((maxtemp) => {
     maxtemp.addEventListener("click", function () {
       let temperature = document.querySelector("#temperature");
       temperature.innerHTML = maxtemp.textContent.slice(0, -1);
       celsiusTemp = temperature.textContent;
     });
-  })
+  });
 }
 
 // create img element to use with temperature icon
