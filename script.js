@@ -2,7 +2,6 @@
 function formatDate(timestamp) {
   let currentDate = new Date(timestamp);
   let hour = currentDate.getHours();
-  // hour < 10 ? (hour = `0${hour}`) : false;
   let minutes = currentDate.getMinutes();
   minutes < 10 ? (minutes = `0${minutes}`) : false;
 
@@ -17,6 +16,30 @@ function formatDate(timestamp) {
   ];
 
   let day = days[currentDate.getDay()];
+
+  let weatherApp = document.querySelector(".weather-app");
+  let forecast = document.querySelector("#forecast");
+
+  if (hour >= 6 && hour < 18) {
+    console.log("menos 18")
+    weatherApp.style.backgroundImage =
+      "linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%)";
+    weatherApp.style.color = "#9696d6";
+    forecast.style.color = "#59599b";
+  } else if (hour >= 18) {
+    console.log("hora 18")
+    weatherApp.style.backgroundImage =
+      "linear-gradient(to top, #a7a6cb 0%, #8989ba 52%, #8989ba 100%)";
+    weatherApp.style.color = "#ccee";
+    forecast.style.color = "#fff";
+  } else {
+    weatherApp.style.backgroundImage = "#fffdfc";
+    weatherApp.style.color = "#9696d6";
+    forecast.style.color = "#59599b";
+  }
+
+  hour < 10 ? (hour = `0${hour}`) : false;
+
   return `${day} ${hour}:${minutes}`;
 }
 
