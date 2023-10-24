@@ -60,6 +60,16 @@ function displayForecast(response) {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+  
+  let maxTemp = document.querySelectorAll(".weather-forecast-temp-max");
+
+  maxTemp.forEach(maxtemp => {
+    maxtemp.addEventListener("click", function () {
+      let temperature = document.querySelector("#temperature");
+      temperature.innerHTML = maxtemp.textContent.slice(0, -1);
+      celsiusTemp = temperature.textContent;
+    });
+  })
 }
 
 // create img element to use with temperature icon

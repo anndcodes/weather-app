@@ -157,6 +157,10 @@ footer a {
   opacity: 0.7;
 }
 
+.weather-forecast-temp-max:hover {
+  cursor: pointer;
+}
+
 .weather-forecast-temp-min {
   opacity: 0.5;
 }
@@ -164,3 +168,10 @@ footer a {
 .weather-forecast-temp {
   font-size: 1.3rem;
 }
+
+.weather-forecast-temp:hover {
+  background: rgb(235, 235, 235);
+  border-radius: 15px;
+}
+
+
