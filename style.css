@@ -172,17 +172,9 @@ footer span {
   font-weight: 500;
 }
 
-.weather-forecast-temp-max:hover {
-  cursor: pointer;
-}
-
 .weather-forecast-temp-min {
   opacity: 0.6;
 }
 
-.weather-forecast-temp:hover {
-  background: rgb(202, 164, 212);
-  border-radius: 15px;
-}
 
 

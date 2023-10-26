@@ -21,13 +21,11 @@ function formatDate(timestamp) {
   let forecast = document.querySelector("#forecast");
 
   if (hour >= 6 && hour < 18) {
-    console.log("menos 18")
     weatherApp.style.backgroundImage =
       "linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%)";
     weatherApp.style.color = "#9696d6";
     forecast.style.color = "#59599b";
   } else if (hour >= 18) {
-    console.log("hora 18")
     weatherApp.style.backgroundImage =
       "linear-gradient(to top, #a7a6cb 0%, #8989ba 52%, #8989ba 100%)";
     weatherApp.style.color = "#ccee";
@@ -78,18 +76,8 @@ function displayForecast(response) {
                     </div>
                   </div>
                 </div>`;
+      forecastElement.innerHTML = forecastHTML.slice(9);
     }
-  });
-  forecastElement.innerHTML = forecastHTML.slice(9);
-
-  let maxTemp = document.querySelectorAll(".weather-forecast-temp-max");
-
-  maxTemp.forEach((maxtemp) => {
-    maxtemp.addEventListener("click", function () {
-      let temperature = document.querySelector("#temperature");
-      temperature.innerHTML = maxtemp.textContent.slice(0, -1);
-      celsiusTemp = temperature.textContent;
-    });
   });
 }
 
@@ -98,11 +86,8 @@ let weatherIcon = document.createElement("img");
 weatherIcon.classList.add("weather-icon");
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "502dc8f7ae36e57af1974e18d16a86f8";
-
   let apiURl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
-  console.log(apiURl);
   axios.get(apiURl).then(displayForecast);
 }
 
@@ -160,17 +145,14 @@ function showFahrenheitTemp(event) {
     fahrenheitTemp);
   celsius.classList.remove("active");
   fahrenheit.classList.add("active");
-  console.log(celsiusTemp);
 }
 
 function showCelsiusTemp(event) {
   event.preventDefault();
-  console.log(celsiusTemp);
   let temperature = (document.querySelector("#temperature").innerHTML =
     Math.round(celsiusTemp));
   fahrenheit.classList.remove("active");
   celsius.classList.add("active");
-  console.log(celsiusTemp);
 }
 
 // get user's current location temperature
@@ -194,7 +176,6 @@ let form = document
   .addEventListener("submit", handleSubmit);
 
 let celsiusTemp = null;
-console.log(celsiusTemp);
 
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", showFahrenheitTemp);
