@@ -103,6 +103,11 @@ input[type="search"] {
   font-size: 1.6rem;
 }
 
+input[type="search"]::placeholder {
+  opacity: 0.8;
+  padding: 5px;
+}
+
 input[type="submit"] {
   color: #fff;
   font-size: 1.6rem;
