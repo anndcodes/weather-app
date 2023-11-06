@@ -19,13 +19,18 @@ function formatDate(timestamp) {
 
   let weatherApp = document.querySelector(".weather-app");
   let forecast = document.querySelector("#forecast");
+  let body = document.querySelector("body");
 
   if (hour >= 6 && hour < 18) {
+    body.style.backgroundImage =
+      "linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%)";
     weatherApp.style.backgroundImage =
       "linear-gradient(to top, #fdcbf1 0%, #fdcbf1 1%, #e6dee9 100%)";
     weatherApp.style.color = "#9696d6";
     forecast.style.color = "#59599b";
   } else if (hour >= 18) {
+    body.style.backgroundImage =
+      "linear-gradient(to top, #a7a6cb 0%, #8989ba 52%, #8989ba 100%)";
     weatherApp.style.backgroundImage =
       "linear-gradient(to top, #a7a6cb 0%, #8989ba 52%, #8989ba 100%)";
     weatherApp.style.color = "#ccee";
